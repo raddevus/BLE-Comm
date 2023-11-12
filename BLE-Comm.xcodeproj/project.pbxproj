@@ -14,6 +14,7 @@
 		A6D5F9982B0133170047C7A1 /* BLE_CommTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9972B0133170047C7A1 /* BLE_CommTests.swift */; };
 		A6D5F9A22B0133170047C7A1 /* BLE_CommUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9A12B0133170047C7A1 /* BLE_CommUITests.swift */; };
 		A6D5F9A42B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9A32B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift */; };
+		A6D5F9B22B0135660047C7A1 /* GameTowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		A6D5F99D2B0133170047C7A1 /* BLE-CommUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BLE-CommUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6D5F9A12B0133170047C7A1 /* BLE_CommUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_CommUITests.swift; sourceTree = "<group>"; };
 		A6D5F9A32B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_CommUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A6D5F9B02B0133E00047C7A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTowerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +97,12 @@
 		A6D5F9852B0133150047C7A1 /* BLE-Comm */ = {
 			isa = PBXGroup;
 			children = (
+				A6D5F9B02B0133E00047C7A1 /* Info.plist */,
 				A6D5F9862B0133150047C7A1 /* BLE_CommApp.swift */,
 				A6D5F9882B0133150047C7A1 /* ContentView.swift */,
 				A6D5F98A2B0133160047C7A1 /* Assets.xcassets */,
 				A6D5F98C2B0133160047C7A1 /* Preview Content */,
+				A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */,
 			);
 			path = "BLE-Comm";
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D5F9892B0133150047C7A1 /* ContentView.swift in Sources */,
+				A6D5F9B22B0135660047C7A1 /* GameTowerViewModel.swift in Sources */,
 				A6D5F9872B0133150047C7A1 /* BLE_CommApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,6 +431,9 @@
 				DEVELOPMENT_TEAM = 2SRF5TLB8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BLE-Comm/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to send data to GameTower";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app uses Bluetooth to send data to GameTower";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +463,9 @@
 				DEVELOPMENT_TEAM = 2SRF5TLB8K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BLE-Comm/Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "This app uses Bluetooth to send data to GameTower";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "This app uses Bluetooth to send data to GameTower";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -8,12 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var gameTowerVM = GameTowerViewModel()
+    @State private var userName = ""
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(userName)")
+            Text("\(gameTowerVM.connectionStateText)")
+            Button("Set User"){
+                userName = "Frank - "
+                gameTowerVM.changeConnectionState()
+            }
         }
         .padding()
     }
