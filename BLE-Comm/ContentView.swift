@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var gameTowerVM = GameTowerViewModel()
+    
     @State private var userName = ""
     
     @State private var connectionBtnText = "Connect"

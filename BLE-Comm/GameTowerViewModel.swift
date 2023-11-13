@@ -31,7 +31,9 @@ class GameTowerViewModel : NSObject, ObservableObject, Identifiable{
     
     func connect(){
         connectionState = true
-        connectionStateText = "Connecting..."
+        DispatchQueue.main.async{
+            self.connectionStateText = "Connecting..."
+        }
         centralQueue = DispatchQueue(label: "test.discovery")
         centralManager = CBCentralManager(delegate: self, queue: centralQueue)
     }
@@ -41,7 +43,9 @@ class GameTowerViewModel : NSObject, ObservableObject, Identifiable{
               let peripheral = connectedPeripheral else {return}
         manager.cancelPeripheralConnection(peripheral)
         connectionState = false
-        connectionStateText = "disconnected"
+        DispatchQueue.main.async{
+            self.connectionStateText = "disconnected"
+        }
     }
     
 }
@@ -49,22 +53,34 @@ class GameTowerViewModel : NSObject, ObservableObject, Identifiable{
 extension GameTowerViewModel: CBCentralManagerDelegate{
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if (central.state == .poweredOn){
-            connectionStateText = "Scanning..."
+            DispatchQueue.main.async{
+                self.connectionStateText = "Scanning..."
+            }
             central.scanForPeripherals(withServices: [serviceUUID])
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        connectionStateText = "Discovered \(peripheral.name ?? "UNKNOWN")"
+        DispatchQueue.main.async{
+            self.connectionStateText = "Discovered \(peripheral.name ?? "UNKNOWN")"
+        }
         central.stopScan()
         connectedPeripheral = peripheral
         central.connect(peripheral, options:nil)
+    }
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        peripheral.delegate = self
+        peripheral.discoverServices(nil)
+        
     }
 }
 
 extension GameTowerViewModel : CBPeripheralDelegate{
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-        connectionStateText = "Discovered services for \(peripheral.name ?? "UNKNOWN")"
+        DispatchQueue.main.async{
+            self.connectionStateText = "Discovered services for \(peripheral.name ?? "UNKNOWN")"
+        }
         guard let services = peripheral.services else{
             return
         }
@@ -78,8 +94,10 @@ extension GameTowerViewModel : CBPeripheralDelegate{
             return
         }
         for ch in characteristics{
-            
-            allCharacteristics.append(ch.uuid.uuidString)
+            print("char \(ch.uuid.uuidString)")
+            DispatchQueue.main.async{
+                self.allCharacteristics.append(ch.uuid.uuidString)
+            }
         }
     }
     
