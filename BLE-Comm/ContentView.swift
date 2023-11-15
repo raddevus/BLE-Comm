@@ -13,7 +13,13 @@ struct ContentView: View {
     @State private var userName = ""
     
     @State private var connectionBtnText = "Connect"
-    @State private var charCount = 0
+    @State private var charCount : Int? = 0
+    
+    @State private var dataToSend = ""
+    
+    init(){
+        print ("in init...")
+    }
     
     var body: some View {
         VStack {
@@ -40,9 +46,19 @@ struct ContentView: View {
             }
             TextField("Current state: ", text:$gameTowerVM.connectionStateText)
             Picker("Chars", selection: $charCount){
+                Text("<Nothing selected>").tag(0)
                 ForEach (gameTowerVM.allCharacteristics, id: \.self)
                 {
                     Text("\($0)")
+                }
+            }
+            HStack{
+                TextField("text to send",text:$dataToSend )
+
+                Button("Send"){
+                    gameTowerVM.sendData(data: dataToSend)
+                    //dataToSend = ""
+                    
                 }
             }
         }

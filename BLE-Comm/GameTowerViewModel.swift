@@ -18,6 +18,7 @@ class GameTowerViewModel : NSObject, ObservableObject, Identifiable{
     private var connectedPeripheral: CBPeripheral?
     private var centralQueue: DispatchQueue?
     @Published var allCharacteristics : [String] = ["super", "ugly", "yikes"]
+    private var inputCharacteristic : CBCharacteristic? = nil
     
     func changeConnectionState(){
         connectionState = !connectionState
@@ -48,6 +49,12 @@ class GameTowerViewModel : NSObject, ObservableObject, Identifiable{
         }
     }
     
+    func sendData(data: String){
+        let sendMsg = data.data(using: String.Encoding.ascii)
+        print("sending data: \(data)")
+        connectedPeripheral?.writeValue(sendMsg ?? Data(), for: inputCharacteristic!, type: .withoutResponse)
+    }
+    
 }
 
 extension GameTowerViewModel: CBCentralManagerDelegate{
@@ -74,6 +81,11 @@ extension GameTowerViewModel: CBCentralManagerDelegate{
         peripheral.discoverServices(nil)
         
     }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("Disconnected from \(peripheral.name ?? "UNKNOWN")")
+        centralManager = nil
+    }
 }
 
 extension GameTowerViewModel : CBPeripheralDelegate{
@@ -94,6 +106,10 @@ extension GameTowerViewModel : CBPeripheralDelegate{
             return
         }
         for ch in characteristics{
+            if ch.uuid.uuidString == "622B2C55-7914-4140-B85B-879C5E252DA0"{
+                print("gotcha!!!")
+                inputCharacteristic = ch
+            }
             print("char \(ch.uuid.uuidString)")
             DispatchQueue.main.async{
                 self.allCharacteristics.append(ch.uuid.uuidString)
