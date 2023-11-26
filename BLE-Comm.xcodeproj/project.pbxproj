@@ -15,6 +15,7 @@
 		A6D5F9A22B0133170047C7A1 /* BLE_CommUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9A12B0133170047C7A1 /* BLE_CommUITests.swift */; };
 		A6D5F9A42B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9A32B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift */; };
 		A6D5F9B22B0135660047C7A1 /* GameTowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */; };
+		A6D5F9B42B0476030047C7A1 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D5F9B32B0476030047C7A1 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		A6D5F9A32B0133170047C7A1 /* BLE_CommUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLE_CommUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A6D5F9B02B0133E00047C7A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTowerViewModel.swift; sourceTree = "<group>"; };
+		A6D5F9B32B0476030047C7A1 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				A6D5F98A2B0133160047C7A1 /* Assets.xcassets */,
 				A6D5F98C2B0133160047C7A1 /* Preview Content */,
 				A6D5F9B12B0135660047C7A1 /* GameTowerViewModel.swift */,
+				A6D5F9B32B0476030047C7A1 /* TestView.swift */,
 			);
 			path = "BLE-Comm";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D5F9B42B0476030047C7A1 /* TestView.swift in Sources */,
 				A6D5F9892B0133150047C7A1 /* ContentView.swift in Sources */,
 				A6D5F9B22B0135660047C7A1 /* GameTowerViewModel.swift in Sources */,
 				A6D5F9872B0133150047C7A1 /* BLE_CommApp.swift in Sources */,

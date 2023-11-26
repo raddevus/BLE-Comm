@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct BLE_CommApp: App {
     var body: some Scene {
+        
         WindowGroup {
             ContentView()
         }
