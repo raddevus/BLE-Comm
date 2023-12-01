@@ -86,7 +86,9 @@ struct ContentView: View {
                     Task{
                         await gameTowerVM.connect(setBleConnectionState)
                         while(!isBleConnected){
-                            Thread.sleep(forTimeInterval: 0.25)
+                            // 1 billion nanoseconds == 1 second
+                            // 250 million ns == 0.25 seconds
+                            try? await Task      .sleep(nanoseconds: 250_000_000)
                         }
                         await gameTowerVM.sendData(data: "what is up?! \(Date.now.formatted())")
                         
